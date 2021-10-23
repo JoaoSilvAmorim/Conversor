@@ -1,6 +1,6 @@
-import 'package:exhange_rates_flutter/components/anyToAny.dart';
-import 'package:exhange_rates_flutter/functions/fetchrates.dart';
-import 'package:exhange_rates_flutter/models/ratesmodel.dart';
+import 'package:exhange_rates_flutter/components/conversaoMoeda.dart';
+import 'package:exhange_rates_flutter/functions/funcoes.dart';
+import 'package:exhange_rates_flutter/models/cotacaoModel.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -11,19 +11,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  //Initial Variables
 
   late Future<RatesModel> result;
   late Future<Map> allcurrencies;
   final formkey = GlobalKey<FormState>();
 
-  //Getting RatesModel and All Currencies
   @override
   void initState() {
     super.initState();
     setState(() {
-      result = fetchrates();
-      allcurrencies = fetchcurrencies();
+      result = buscarCota();
+      allcurrencies = buscarMoeda();
     });
   }
 
@@ -34,7 +32,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
         appBar: AppBar(title: Text('Conversor')),
 
-        //Future Builder for Getting Exchange Rates
         body: Container(
           height: h,
           width: w,

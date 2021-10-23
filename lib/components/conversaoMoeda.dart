@@ -1,4 +1,4 @@
-import 'package:exhange_rates_flutter/functions/fetchrates.dart';
+import 'package:exhange_rates_flutter/functions/funcoes.dart';
 import 'package:flutter/material.dart';
 
 class AnyToAny extends StatefulWidget {
@@ -114,7 +114,7 @@ class _AnyToAnyState extends State<AnyToAny> {
                         ' ' +
                         dropdownValue1 +
                         ' ' +
-                        convertany(widget.rates, amountController.text,
+                        converter(widget.rates, amountController.text,
                             dropdownValue1, dropdownValue2) +
                         ' ' +
                         dropdownValue2;
